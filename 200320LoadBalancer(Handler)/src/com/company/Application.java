@@ -11,7 +11,7 @@ public class Application {
    2. быстро обновляется
    3. быстро отдает самый оптимальный Handler
    При подключении он пустой
-   Если от какого-л Handler в течении 5 мин нет сообщений, он стирается из структруры данных
+   Если от какого-л Handler в течении 5 cек нет сообщений, он стирается из структруры данных
 
    Handler
    каждую секунду пересылает инфо на Balancer (UDP), сколько у него свободных потоков
@@ -24,17 +24,16 @@ public class Application {
 
      */
 
-
     public static void main(String[] args) throws InterruptedException {
 
-        Thread th1 = new Thread(new Handler(4000));
-        Thread th2 = new Thread(new Handler(4001));
+        String handlerHost = args[0];
+        int handlerPort = Integer.parseInt(args[1]);
 
-        th1.start();
-        th2.start();
+        Thread th = new Thread(new Handler(handlerHost, handlerPort));
 
-        th1.join();
-        th2.join();
+        th.start();
+        th.join();
+
     }
 
 }
