@@ -20,6 +20,11 @@ mvnw.cmd
 *.iws
 *.iml
 *.ipr
+*.bin
+*.lock
+*.jar
+*.gradlew
+*.bat
 
 ### NetBeans ###
 /nbproject/private/
