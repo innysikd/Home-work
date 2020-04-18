@@ -21,13 +21,9 @@ public class TextProcessor implements Runnable {
             BufferedReader socketInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintStream socketOutput = new PrintStream(socket.getOutputStream());
 
-            String text;
-
-            while (!(text = socketInput.readLine()).equals("exit")) {
-                text = text.toUpperCase();
-                socketOutput.println(text);
-            }
-
+            String text = socketInput.readLine();
+            text = text.toUpperCase();
+            socketOutput.println(text);
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();

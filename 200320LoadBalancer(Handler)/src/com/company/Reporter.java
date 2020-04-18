@@ -9,12 +9,13 @@ public class Reporter implements Runnable {
     private ThreadPoolExecutor executor;
     private static final String SERVER = "localhost";
     private static final int SERVER_PORT = 3500;
-    private static final int SLEEP_INTERVAL = 5000;
-    private static final String HANDLER_HOST = "localhost";
+    private static final int SLEEP_INTERVAL = 1000;
+    private String handlerHost;
     private int handlerPort;
 
-    public Reporter(ThreadPoolExecutor executor, int handlerPort) {
+    public Reporter(ThreadPoolExecutor executor, String handlerHost, int handlerPort) throws UnknownHostException {
         this.executor = executor;
+        this.handlerHost = handlerHost;
         this.handlerPort = handlerPort;
     }
 
@@ -26,7 +27,7 @@ public class Reporter implements Runnable {
             InetAddress ip = InetAddress.getByName(SERVER);
 
             while (true){
-                String info = HANDLER_HOST + ":" + (Integer.valueOf(handlerPort)).toString() + ":" + (Integer.valueOf(executor.getActiveCount()).toString());
+                String info = handlerHost + ":" + (Integer.valueOf(handlerPort)).toString() + ":" + (Integer.valueOf(executor.getActiveCount()).toString());
 
                 byte[] dataOut = info.getBytes();
 
