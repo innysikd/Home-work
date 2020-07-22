@@ -4,12 +4,6 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
-/target/
-!.mvn/wrapper/maven-wrapper.jar
-mvnw
-mvnw.cmd
-
-/.mvn
 
 ### STS ###
 .apt_generated
@@ -25,11 +19,10 @@ mvnw.cmd
 *.iws
 *.iml
 *.ipr
-*.bin
-*.lock
-*.jar
-*.gradlew
-*.bat
+out/
+
+**/.idea
+*/out/
 
 ### NetBeans ###
 /nbproject/private/
@@ -37,10 +30,6 @@ mvnw.cmd
 /dist/
 /nbdist/
 /.nb-gradle/
-/build/
 
 ### VS Code ###
 .vscode/
-
-###Mysql DB data files 
-/db_data/
