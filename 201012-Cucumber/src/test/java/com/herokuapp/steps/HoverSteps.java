@@ -43,8 +43,6 @@ public class HoverSteps implements En {
             }
         });
 
-        When("I hover on avatar 3", () -> $(generateXpath("3")).hover());
-
         When("I click {}", (String text) -> {
             $(By.linkText("View profile")).click(); //search by text
         });

@@ -16,6 +16,7 @@ Feature: Login page
       | username   | password   |
       | <username> | <password> |
     And I press the login button
+    Then I see error message
     Then I'm still on the login page
 
     Examples:

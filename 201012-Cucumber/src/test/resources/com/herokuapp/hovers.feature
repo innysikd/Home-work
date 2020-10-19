@@ -16,7 +16,7 @@ Background:
       |1              | user1         |
 
   Scenario: View profile
-    When I hover on avatar 3
+    When I hover avatar 3
     And I click View profile
     Then I observe Not Found text
 

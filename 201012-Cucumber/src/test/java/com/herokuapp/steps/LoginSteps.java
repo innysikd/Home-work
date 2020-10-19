@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import java.util.List;
 import java.util.Map;
 
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.herokuapp.pages.LoginPage.*;
@@ -31,6 +32,10 @@ public class LoginSteps implements En {
 
         Then("I'm still on the login page", () -> {
             $(By.tagName("h2")).shouldHave(text("Login Page"));
+        });
+
+        Then ("I see error message", () -> {
+            $(errorMessage).should(exist);
         });
 
 
