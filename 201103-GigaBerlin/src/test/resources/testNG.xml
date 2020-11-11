@@ -12,7 +12,7 @@
     <test name="Firefox Tests">
         <parameter name="browser" value="Firefox" />
         <classes>
-            <class name="gigaBerlin.RunTestFirefox"/>
+            <class name="gigaBerlin.RunTest"/>
         </classes>
     </test>
 </suite>

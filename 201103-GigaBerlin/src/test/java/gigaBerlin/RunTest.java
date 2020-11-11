@@ -28,8 +28,9 @@ public class RunTest extends FunctionalTest{
         Selenide.open(BASE_URL);
 
         Selenide.switchTo().frame(0);
-
         google.acceptCookies();
+        Selenide.switchTo().parentFrame();
+
         google.searchGoogle(WIKI_SEARCH_TEXT);
         google.clickWiki();
         wikipedia.search(SEARCH_GIGA);
@@ -37,8 +38,9 @@ public class RunTest extends FunctionalTest{
         assert ($(LOGISTICS).getText().contains("Logistics"));
         assert ($(SITE_CONCERNS).getText().contains("Site concerns"));
 
-        googleMaps.searchCoordinates(wikipedia.getCoordinates());
+        googleMaps.searchCoordinates(wikipedia.getCoordinatesData());
 
+        Selenide.switchTo().activeElement();
         assert ($(By.tagName("h1")).getText().contains("52°24'00.0\"N 13°48'00.0\"E"));
     }
 

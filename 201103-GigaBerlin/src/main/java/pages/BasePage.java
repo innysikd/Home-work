@@ -17,7 +17,7 @@ public class BasePage {
     }
 
     /**
-     *Sends keys to the field and clicks the button
+     *Sends keys to the field
      * @param searchField
      * @param searchText
      */
@@ -25,6 +25,10 @@ public class BasePage {
         $(searchField).setValue(searchText);
     }
 
+    /**
+     * Clicks the button
+     * @param searchBtn
+     */
     public void clickElement(By searchBtn){
         $(searchBtn).click();
     }
