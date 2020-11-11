@@ -15,8 +15,8 @@ public class Wikipedia extends BasePage{
     }
 
     public Wikipedia search(String searchText){
-        $(searchField).setValue(searchText);
-        $(searchBtn).click();
+        sendKeysToElement(searchField, searchText);
+        clickElement(searchBtn);
         return new Wikipedia();
     }
 

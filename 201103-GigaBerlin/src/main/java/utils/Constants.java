@@ -12,4 +12,7 @@ public class Constants {
     public static final By LOGISTICS = By.xpath("//*[@id=\"toc\"]/ul/li[2]/ul/li[2]/a/span[2]");
     public static final By SITE_CONCERNS = By.xpath("//*[@id=\"toc\"]/ul/li[2]/ul/li[3]/a/span[2]");
 
+    public static final By LOGISTICS_FIREFOX = By.xpath("//*[@id=\"toc\"]/ul/li[2]/ul/li[2]/a/span[2]");
+    public static final By SITE_CONCERNS_FIREFOX = By.xpath("//*[@id=\"toc\"]/ul/li[2]/ul/li[3]/a/span[2]");
+
 }

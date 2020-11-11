@@ -19,12 +19,14 @@ public class BasePage {
     /**
      *Sends keys to the field and clicks the button
      * @param searchField
-     * @param searchBtn
      * @param searchText
      */
-    public void sendKeysAndClick(By searchField, By searchBtn, String searchText){
-    $(searchField).setValue(searchText);
-    $(searchBtn).click();
-  }
+    public void sendKeysToElement(By searchField, String searchText){
+        $(searchField).setValue(searchText);
+    }
+
+    public void clickElement(By searchBtn){
+        $(searchBtn).click();
+    }
 
 }

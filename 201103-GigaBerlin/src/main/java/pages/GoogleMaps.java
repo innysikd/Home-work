@@ -4,7 +4,6 @@ import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.refresh;
 import static utils.Constants.*;
 
 public class GoogleMaps extends BasePage {
@@ -19,7 +18,7 @@ public class GoogleMaps extends BasePage {
     public GoogleMaps searchCoordinates(String coordinates){
         Selenide.open(MAPS_URL);
         $(searchField).setValue(coordinates);
-        $(searchBtn).click();
+        clickElement(searchBtn);
         return new GoogleMaps();
     }
 }

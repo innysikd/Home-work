@@ -16,16 +16,17 @@ public class Google extends BasePage{
     }
 
     public Google searchGoogle(String searchText){
-        sendKeysAndClick(searchField, searchBtn, searchText);
+        sendKeysToElement(searchField, searchText);
+        clickElement(searchBtn);
         return new Google();
     }
 
     public Wikipedia clickWiki(){
-        $(wikiLink).click();
+        clickElement(wikiLink);
         return new Wikipedia();
     }
 
     public void acceptCookies(){
-        $(acceptCookiesBtn).click();
+        clickElement(acceptCookiesBtn);
     }
 }
