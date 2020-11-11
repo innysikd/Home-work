@@ -1,7 +1,9 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import static com.codeborne.selenide.Selenide.$;
 
 /**
  * BasePage
@@ -11,17 +13,18 @@ import org.openqa.selenium.WebElement;
  */
 public class BasePage {
 
-    public static WebDriver driver;
-    public static String basicURL = "https://www.google.com/";
-    public static String googleMapsUrl = "https://www.google.com/maps";
-
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
+    public BasePage() {
     }
 
-    public static void sendKeysToWebElement(WebElement element, String text){
-        element.sendKeys(text);
-    }
-
+    /**
+     *Sends keys to the field and clicks the button
+     * @param searchField
+     * @param searchBtn
+     * @param searchText
+     */
+    public void sendKeysAndClick(By searchField, By searchBtn, String searchText){
+    $(searchField).setValue(searchText);
+    $(searchBtn).click();
+  }
 
 }

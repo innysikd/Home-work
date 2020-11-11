@@ -1,28 +1,28 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import static com.codeborne.selenide.Configuration.browser;
 import static com.codeborne.selenide.Selenide.$;
 
 public class Google extends BasePage{
 
     private By searchField = By.name("q");
     private By searchBtn = By.name("btnK");
-    private By acceptCookiesBtn = By.className("RveJvd snByac");
+    private By acceptCookiesBtn = By.cssSelector("#introAgreeButton .RveJvd");
+    private By wikiLink = By.xpath("//*[@id=\"rso\"]/div[1]/div/div[1]/a/h3/span");
 
-    public Google(WebDriver driver) {
-        super(driver);
+    public Google() {
     }
 
     public Google searchGoogle(String searchText){
-        $(searchField).setValue(searchText);
-        $(searchBtn).click();
-        return new Google(driver);
+        sendKeysAndClick(searchField, searchBtn, searchText);
+        return new Google();
     }
 
-    public Wikipedia clickWiki(String linkText){
-        $(By.linkText(linkText)).click();
-        return new Wikipedia(driver);
+    public Wikipedia clickWiki(){
+        $(wikiLink).click();
+        return new Wikipedia();
     }
 
     public void acceptCookies(){

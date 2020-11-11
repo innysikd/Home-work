@@ -1,64 +1,45 @@
 package gigaBerlin;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
-import driver.ChromeWebDriver;
-import driver.GeckoWebDriver;
-import org.junit.AfterClass;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterTest;
-import pages.BasePage;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pages.Google;
-import pages.Wikipedia;
 
 import static com.codeborne.selenide.Selenide.$;
 import static utils.Constants.*;
 
-public class RunTest {
+/*
+TODO
+Please try to start your automation using Google as a starting point and try to
+reach the following page:
+1) From www.google.com, your automation should take you to
+www.wikipedia.com.
+2) From there, it should find the article “Giga Berlin” using the search box.
+3) Your automation should find the Coordinates of the location and the
+following data: Logistics, Site concerns.
+4) The automation should open a new tab to check Google Maps with the
+location.
+Make the tests work with multiple browsers (Chrome, Safari, etc.)
+ */
 
-    protected static WebDriver driver;
-    protected static Wikipedia wikipedia = new Wikipedia(driver);
-    protected static Google google = new Google(driver);
-
-    @Parameters("browser")
-    @BeforeTest
-    public void setupBrowser(String browser){
-        if (browser.equals("Chrome")){
-            driver = ChromeWebDriver.getWebDriverInstance();
-            WebDriverRunner.setWebDriver(driver); //set Selenide WebDriver
-            System.setProperty("selenide.browser", "chrome");
-        } else if (browser.equals("Firefox")){
-            driver = GeckoWebDriver.getWebDriverInstance();
-            WebDriverRunner.setWebDriver(driver); //set Selenide WebDriver
-            //driver = new FirefoxDriver();
-            System.setProperty("selenide.browser", "firefox");
-        }
-    }
-
-    @AfterClass
-    public static void tearDown() {
-        driver.close();
-    }
+public class RunTest extends FunctionalTest{
 
     @Test
     public void test(){
-        driver.get(BASE_URL);
 
-        //driver.findElement(By.className("RveJvd snByac")).click();
-        //driver.switchTo().activeElement();#introAgreeButton > span > span
-        Selenide.executeJavaScript("document.querySelector('#introAgreeButton > span > span').click()");
-        By test = By.tagName("h1");
-       // google.acceptCookies();
-        assert ($(test).getText().contains("Bevor Sie fortfahren"));
+        Selenide.open(BASE_URL);
+
+        Selenide.switchTo().frame(0);
+
+        google.acceptCookies();
         google.searchGoogle(WIKI_SEARCH_TEXT);
-        google.clickWiki(WIKI_LINK_TEXT);
+        google.clickWiki();
+        wikipedia.search(SEARCH_GIGA);
 
+        assert ($(LOGISTICS).getText().contains("Logistics"));
+        assert ($(SITE_CONCERNS).getText().contains("Site concerns"));
 
+        googleMaps.searchCoordinates(wikipedia.getCoordinates());
+
+        assert ($(By.tagName("h1")).getText().contains("52°24'00.0\"N 13°48'00.0\"E"));
     }
 
 
