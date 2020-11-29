@@ -32,3 +32,5 @@ Feature files location:
 ## Contributors
 
 Violeta Abramova abramova.violetta@gmail.com
+
+Inna Drukerman innysik@gmail.com

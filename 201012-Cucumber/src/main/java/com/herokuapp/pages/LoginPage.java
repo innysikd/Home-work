@@ -3,6 +3,12 @@ package com.herokuapp.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+/**
+ * LoginPage
+ * Class implements the base methods and fields.
+ *
+ * @author Inna Drukerman innysik@gmail.com
+ */
 public class LoginPage extends BasePage {
 
     public static final By inputUserName = By.id("username");

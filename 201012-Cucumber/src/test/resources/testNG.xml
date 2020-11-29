@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="PhoneBook" parallel="tests" thread-count="3">
+
+    <test name="Mac_Chrome">
+        <classes>
+            <class name="com.herokuapp.RunCukesTest"/>
+        </classes>
+    </test>
+</suite>

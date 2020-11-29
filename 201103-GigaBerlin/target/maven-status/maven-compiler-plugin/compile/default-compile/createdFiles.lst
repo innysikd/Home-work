@@ -1,0 +1,7 @@
+pages\BasePage.class
+pages\GoogleMaps.class
+utils\Constants.class
+pages\Wikipedia.class
+pages\Google.class
+PagesFirefox\GoogleFirefox.class
+PagesFirefox\WikipediaFirefox.class
