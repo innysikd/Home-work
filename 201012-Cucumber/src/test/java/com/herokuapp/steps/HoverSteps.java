@@ -13,6 +13,7 @@ import static com.herokuapp.pages.HoversPage.*;
  * @author Inna Drukerman innysik@gmail.com
  */
 public class HoverSteps implements En {
+
     public HoverSteps() {
         When("I hover avatar {}", (String index) -> {
             $(generateXpath(index)).hover();

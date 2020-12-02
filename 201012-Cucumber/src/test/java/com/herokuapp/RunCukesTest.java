@@ -54,7 +54,7 @@ Your Quandoo Team
         plugin = {"json:target/cucumber-report.json", "pretty"},
         glue = "com.herokuapp",
         strict = true
-      //  tags ="@dataTables" //   or mvn test -Dcucumber.options="--tags @login" in order to run the @login steps only
+       // tags ="@dom" //   or mvn test -Dcucumber.options="--tags @login" in order to run the @login steps only
 )
 public class RunCukesTest extends AbstractTestNGCucumberTests {
 

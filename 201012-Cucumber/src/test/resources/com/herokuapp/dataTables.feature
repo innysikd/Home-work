@@ -8,7 +8,6 @@ Feature: Data Tables Page
   Scenario: Order the last name alphabetically
     When I click Last Name
     Then I see the table is in the ascending order
-
-  When I click Last Name
+    When I click Last Name
     Then I see the table is in the descending order
 
